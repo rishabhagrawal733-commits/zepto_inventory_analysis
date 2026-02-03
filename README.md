@@ -20,8 +20,10 @@ This project demonstrates practical SQL skills and analytical techniques used to
 ## Project Structure
 
 ## 1) Database & Table setup
+
 '''sql
 drop table if exists zepto;
+
 create table zepto(
 sku_id SERIAL PRIMARY KEY,
 category VARCHAR(100),
@@ -34,3 +36,4 @@ weightingms integer,
 outofstock boolean,
 quantity int
 );
+'''
