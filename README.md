@@ -70,6 +70,60 @@ or quantity is null;
 ```
 
 ## Diffrent product category in the data
+```sql
+select distinct category
+from zepto
+order by category;
+```
 
+## Product in stock and out of stock
+```sql
+select outofstock, count(sku_id)
+from zepto 
+group by outofstock;
+```
 
+## Product name present multiple times
+```sql
+select name, count(sku_id) as "Number of SKUs"
+from zepto
+group by name 
+having count(sku_id) > 1
+order by count(sku_id) DESC;
+```
 
+## Data cleaning
+## Product price might be 0
+```sql
+select * from zepto 
+where mrp = 0
+or discountedsellingprice = 0;
+```
+
+## Deleting the input where the mpr or the discounted price is 0
+```sql
+delete from zepto 
+where mrp=0;
+```
+
+## Converting the price frpm paise to rupee
+```sql
+update zepto
+set mrp = mrp/100,
+discountedsellingprice = discountedsellingprice/100;
+```
+
+## Some business analytical related questions
+## Q1 Find the top 10 best-valued products based on the discount percentage.
+```sql
+select distinct * from zepto
+order by discountpercent desc
+limit 10;
+```
+
+## Q2 What are the products with high mrp but out of stock
+```sql
+select distinct * from zepto 
+where outofstock = TRUE and mrp > 300
+order by mrp desc;
+```
