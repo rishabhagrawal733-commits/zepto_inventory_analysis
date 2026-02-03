@@ -19,27 +19,57 @@ This project demonstrates practical SQL skills and analytical techniques used to
 
 ## Project Structure
 
-## 1) Database & Table setup
+## Database & Table setup
 
 ```sql
-CREATE DATABASE p1_retail_db;
+drop table if exists zepto;
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
-    age INT,
-    category VARCHAR(35),
-    quantity INT,
-    price_per_unit FLOAT,	
-    cogs FLOAT,
-    total_sale FLOAT
+create table zepto(
+sku_id SERIAL PRIMARY KEY,
+category VARCHAR(100),
+name VARCHAR(150) not null,
+mrp numeric(8,2),
+discountpercent numeric(5,2),
+availablequantity INTEGER,
+discountedsellingprice NUMERIC(8,2),
+weightingms integer,
+outofstock boolean,
+quantity int
 );
 ```
 
+## Check that data imported or not
+```sql
+select * from zepto;
+```
+
+## Data exploration
+## Count of rows
+```sql
+select count(*) from zepto;
+```
+
+## Sample data 
+```sql
+select * from zepto 
+limit 10;
+```
+
+## Check for null values 
+```sql
+select * from zepto
+where name is null
+or category is null
+or mrp is null
+or discountpercent is null
+or availablequantity is null
+or discountedsellingprice is null
+or weightingms is null
+or outofstock is null
+or quantity is null;
+```
+
+## Diffrent product category in the data
 
 
 
