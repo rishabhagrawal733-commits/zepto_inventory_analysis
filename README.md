@@ -22,18 +22,9 @@ This project demonstrates practical SQL skills and analytical techniques used to
 ## 1) Database & Table setup
 
 '''sql
-drop table if exists zepto;
-
-create table zepto(
-sku_id SERIAL PRIMARY KEY,
-category VARCHAR(100),
-name VARCHAR(150) not null,
-mrp numeric(8,2),
-discountpercent numeric(5,2),
-availablequantity INTEGER,
-discountedsellingprice NUMERIC(8,2),
-weightingms integer,
-outofstock boolean,
-quantity int
-);
+select * from table;
 '''
+
+
+
+
