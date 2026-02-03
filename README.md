@@ -127,3 +127,56 @@ select distinct * from zepto
 where outofstock = TRUE and mrp > 300
 order by mrp desc;
 ```
+
+## Q3 Calculate the estimated revenue for each category
+```sql
+select distinct category, sum(discountedsellingprice * availablequantity)
+from zepto
+group by category
+order by sum(discountedsellingprice * availablequantity) desc;
+```
+
+## Q4 Find all products where mrp greater than 500 and discount is less than 10%
+```sql
+select distinct * from zepto
+where mrp > 500
+and discountpercent < 10;
+```
+
+## Q5 Identify the top 5 categories offering the highest average discount percentage
+```sql
+select category, ROUND(avg (discountpercent),2)
+from zepto 
+group by category 
+order by avg(discountpercent) desc
+limit 5;
+```
+
+## Q6 Find the price per gram from the products above 100g and sort by best value.
+```sql
+select distinct name, weightingms, discountedsellingprice, round(discountedsellingprice/weightingms,2) as price_per_grams
+from zepto
+where weightingms >=100
+order by round(discountedsellingprice/weightingms,2);
+```
+
+## Q7 Grow the products into categories like low, medium, bulk
+```sql
+select distinct name, weightingms,
+case
+when weightingms < 1000 then 'Low'
+when weightingms < 5000 then 'Medium'
+else 'Bulk'
+End as weight_category
+from zepto
+order by weightingms;
+```
+
+## Q8 What is the toatal inventory weight per category
+```sql
+select category,
+sum (weightingms * availablequantity) as total_weight
+from zepto
+group by category
+order by total_weight;
+```
