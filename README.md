@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-**Product Title**: Inventory Data Analysis
-**Level**: Beginner
-**Database**: 'https://www.kaggle.com/datasets/palvinder2006/zepto-inventory-dataset'
+**Product Title**: Inventory Data Analysis.
+**Level**: Beginner.
+**Database**: 'https://www.kaggle.com/datasets/palvinder2006/zepto-inventory-dataset'.
 
 This project demonstrates practical SQL skills and analytical techniques used to explore, clean, and analyze inventory data in a quick-commerce setting similar to Zepto. It involves working with a structured inventory dataset, performing data cleaning and preparation, and conducting exploratory data analysis to understand pricing patterns, discount strategies, stock availability, product value, and category performance. Using SQL queries, the project answers key business questions related to revenue estimation, stockouts, unit pricing, and inventory distribution, showing how raw data can be transformed into meaningful insights that support better inventory planning and operational decision-making. This project is particularly valuable for beginners in data analytics looking to build a strong foundation in SQL through a practical, business-focused use case.
 
